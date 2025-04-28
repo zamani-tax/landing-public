@@ -1,1 +1,551 @@
-Test.
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بسته همراهی مشاوره مالیاتی کسب‌وکار | مشاوره مالیاتی حرفه‌ای</title>
+    <meta name="description" content="خدمات مشاوره مالیاتی حرفه‌ای برای کسب‌وکارها با پلن‌های متنوع طلایی، نقره‌ای و برنزی">
+    
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Sahel Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+    
+    <style>
+        body {
+            font-family: 'Sahel', sans-serif;
+        }
+        
+        .gradient-overlay {
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e53e3e',
+                        secondary: '#0BC5EA',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Hero Section -->
+    <section class="relative h-screen max-h-[700px] flex items-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="مشاوره مالیاتی" 
+                 class="w-full h-full object-cover"
+                 loading="lazy">
+            <div class="gradient-overlay absolute inset-0"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-white">
+            <div class="max-w-3xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">بسته همراهی مشاوره مالیاتی کسب‌وکار</h1>
+                <h2 class="text-xl md:text-2xl mb-8">۳ پلن طلایی، نقره‌ای و برنزی برای پوشش همه نیازهای شما</h2>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-primary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                        درخواست مشاوره رایگان
+                    </button>
+                    <button class="bg-transparent hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-8 rounded-lg border-2 border-white transition duration-300">
+                        مشاهده پلن‌ها
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Introduction Section -->
+    <section class="py-16 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/3 mb-8 md:mb-0 relative">
+                    <img src="https://s3.7learn.com/7learn_JAjv5MA6/photo-2025-03-27-00-19--wf2s6a43.jpg" 
+                         alt="محسن زمانی - مشاور مالیاتی" 
+                         class="w-full h-auto rounded-xl shadow-lg"
+                         loading="lazy">
+                    <div class="absolute -bottom-4 -right-4 bg-primary text-white px-4 py-2 rounded-lg shadow-lg">
+                        <span class="font-bold">۱۰ سال تجربه</span>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm relative">
+                        <div class="absolute top-4 right-4 text-3xl text-primary opacity-20">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4 text-gray-800">محسن زمانی</h2>
+                        <h3 class="text-xl font-bold mb-4 text-primary">مشاور ارشد مالیاتی با ۱۰ سال سابقه حرفه‌ای</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            به عنوان متخصص با تجربه در زمینه مشاوره مالیاتی با افتخار در خدمت کسب‌وکارهای ایرانی هستم. طی یک دهه فعالیت، به بیش از ۳۰۰ کسب‌وکار در زمینه‌های مختلف خدمات مشاوره‌ای ارائه داده‌ام و با تسلط کامل بر قوانین مالیاتی و شناخت چالش‌های کسب‌وکارها، راهکارهای قانونی و مؤثر برای کاهش هزینه‌های مالیاتی ارائه می‌دهم.
+                        </p>
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <div class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-primary ml-3">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <span>عضو رسمی انجمن حسابداران خبره</span>
+                            </div>
+                            <div class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-primary ml-3">
+                                    <i class="fas fa-landmark"></i>
+                                </div>
+                                <span>مشاور معتمد سازمان امور مالیاتی</span>
+                            </div>
+                            <div class="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                                <div class="text-primary ml-3">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <span>کارشناس ارشد حسابداری</span>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <a href="#resume" id="resumeToggle" class="inline-flex items-center text-primary hover:text-primary-dark">
+                                <span class="ml-2">مشاهده رزومه کامل</span>
+                                <i class="fas fa-arrow-left" id="resumeIcon"></i>
+                            </a>
+                        </div>
+                        
+                        <!-- Resume Section (Hidden by Default) -->
+                        <div id="resumeSection" class="mt-6 bg-white p-6 rounded-xl shadow-md hidden">
+                            <div class="border-b border-gray-200 pb-4 mb-4">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">رزومه محسن زمانی</h3>
+                                <p class="text-gray-600">مشاور ارشد مالیاتی با بیش از یک دهه تجربه در حوزه مشاوره مالیاتی کسب‌وکارها</p>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-bold text-primary mb-3">تحصیلات</h4>
+                                <ul class="space-y-3">
+                                    <li class="flex items-start">
+                                        <div class="h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center ml-3 mt-1">
+                                            <i class="fas fa-graduation-cap text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">کارشناسی ارشد حسابداری</p>
+                                            <p class="text-gray-600">دانشگاه تهران، ۱۳۹۰-۱۳۹۲</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <div class="h-6 w-6 rounded-full bg-primary text-white flex items-center justify-center ml-3 mt-1">
+                                            <i class="fas fa-graduation-cap text-sm"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold">کارشناسی حسابداری</p>
+                                            <p class="text-gray-600">دانشگاه شهید بهشتی، ۱۳۸۶-۱۳۹۰</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-bold text-primary mb-3">تجربیات حرفه‌ای</h4>
+                                <div class="space-y-4">
+                                    <div class="p-4 bg-gray-50 rounded-lg border-r-4 border-primary">
+                                        <div class="flex justify-between mb-2">
+                                            <h5 class="font-bold">مدیر ارشد مشاوره مالیاتی</h5>
+                                            <span class="text-sm bg-primary text-white px-2 py-1 rounded">۱۳۹۸ - حال حاضر</span>
+                                        </div>
+                                        <p class="text-gray-700 mb-2">شرکت مشاوره مالی و مالیاتی ایرانیان</p>
+                                        <ul class="text-gray-600 list-disc mr-5 space-y-1">
+                                            <li>هدایت تیم ۱۲ نفره متخصصان مالیاتی</li>
+                                            <li>ارائه مشاوره به بیش از ۱۵۰ شرکت کوچک و متوسط</li>
+                                            <li>کاهش میانگین ۲۵٪ مالیات مشتریان با استفاده از راهکارهای قانونی</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="p-4 bg-gray-50 rounded-lg border-r-4 border-gray-400">
+                                        <div class="flex justify-between mb-2">
+                                            <h5 class="font-bold">کارشناس ارشد مالیاتی</h5>
+                                            <span class="text-sm bg-gray-500 text-white px-2 py-1 rounded">۱۳۹۳ - ۱۳۹۸</span>
+                                        </div>
+                                        <p class="text-gray-700 mb-2">شرکت حسابرسی مفید راهبر</p>
+                                        <ul class="text-gray-600 list-disc mr-5 space-y-1">
+                                            <li>ممیزی مالیاتی بیش از ۵۰ شرکت سالانه</li>
+                                            <li>همکاری در تدوین استراتژی‌های مالیاتی برای شرکت‌های بزرگ</li>
+                                            <li>برگزاری دوره‌های آموزشی مالیاتی برای حسابداران</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="p-4 bg-gray-50 rounded-lg border-r-4 border-gray-400">
+                                        <div class="flex justify-between mb-2">
+                                            <h5 class="font-bold">کارشناس مالیاتی</h5>
+                                            <span class="text-sm bg-gray-500 text-white px-2 py-1 rounded">۱۳۹۰ - ۱۳۹۳</span>
+                                        </div>
+                                        <p class="text-gray-700 mb-2">سازمان امور مالیاتی کشور</p>
+                                        <ul class="text-gray-600 list-disc mr-5 space-y-1">
+                                            <li>رسیدگی به پرونده‌های مالیاتی مشاغل و شرکت‌ها</li>
+                                            <li>همکاری در بازنگری دستورالعمل‌های مالیاتی</li>
+                                            <li>ارزیابی اظهارنامه‌های مالیاتی و تعیین مالیات قطعی</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-bold text-primary mb-3">گواهینامه‌ها و مجوزها</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-secondary ml-3">
+                                            <i class="fas fa-certificate"></i>
+                                        </div>
+                                        <span>عضو رسمی انجمن حسابداران خبره ایران</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-secondary ml-3">
+                                            <i class="fas fa-award"></i>
+                                        </div>
+                                        <span>دارای پروانه مشاوره مالیاتی درجه یک</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-secondary ml-3">
+                                            <i class="fas fa-user-check"></i>
+                                        </div>
+                                        <span>مشاور معتمد سازمان امور مالیاتی</span>
+                                    </div>
+                                    <div class="flex items-center p-3 bg-gray-50 rounded-lg">
+                                        <div class="text-secondary ml-3">
+                                            <i class="fas fa-file-signature"></i>
+                                        </div>
+                                        <span>دارای مجوز ارائه خدمات مالی و مالیاتی</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 class="text-lg font-bold text-primary mb-3">مهارت‌های تخصصی</h4>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span>قوانین مالیاتی ایران</span>
+                                            <span>۹۵٪</span>
+                                        </div>
+                                        <div class="h-2 bg-gray-200 rounded-full">
+                                            <div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span>مشاوره مالیاتی شرکت‌ها</span>
+                                            <span>۹۰٪</span>
+                                        </div>
+                                        <div class="h-2 bg-gray-200 rounded-full">
+                                            <div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span>نرم‌افزارهای حسابداری</span>
+                                            <span>۸۵٪</span>
+                                        </div>
+                                        <div class="h-2 bg-gray-200 rounded-full">
+                                            <div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span>حل و فصل اختلافات مالیاتی</span>
+                                            <span>۹۲٪</span>
+                                        </div>
+                                        <div class="h-2 bg-gray-200 rounded-full">
+                                            <div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">چرا بسته ما بهترین انتخاب شماست؟</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Benefit 1 -->
+                <div class="flex items-start p-6 bg-gray-50 rounded-lg">
+                    <div class="bg-secondary py-3 px-4 rounded-full text-white ml-4">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">کاهش ریسک مالیاتی</h3>
+                        <p class="text-gray-600">جلوگیری از جریمه‌های سنگین با مشاوره تخصصی و به‌روز</p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="flex items-start p-6 bg-gray-50 rounded-lg">
+                    <div class="bg-secondary py-3 px-4 rounded-full text-white ml-4">
+                        <i class="fas fa-chart-line text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">شفافیت کامل</h3>
+                        <p class="text-gray-600">گزارش‌های دقیق و قابل‌فهم برای مدیریت بهتر امور مالیاتی</p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="flex items-start p-6 bg-gray-50 rounded-lg">
+                    <div class="bg-secondary py-3 px-4 rounded-full text-white ml-4">
+                        <i class="fas fa-headset text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">پشتیبانی اختصاصی</h3>
+                        <p class="text-gray-600">دسترسی به مشاوران از طریق تلگرام، تیکت و وبینارهای اختصاصی</p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 4 -->
+                <div class="flex items-start p-6 bg-gray-50 rounded-lg">
+                    <div class="bg-secondary py-3 px-4 rounded-full text-white ml-4">
+                        <i class="fas fa-clock text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">صرفه‌جویی در زمان</h3>
+                        <p class="text-gray-600">تا ۳۰٪ آفر خدمات اجرایی برای مدیریت بهینه زمان و هزینه</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-4">انتخاب پلن مناسب برای شما</h2>
+            <p class="text-center text-gray-600 mb-12">همراهی تخصصی با کسب‌وکار شما به مدت یک سال کامل</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bronze Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 plan-card">
+                    <div class="p-6 bg-gradient-to-r from-amber-700 to-yellow-600 text-white">
+                        <h3 class="text-2xl font-bold text-center">برنزی</h3>
+                        <div class="text-center mt-4">
+                            <span class="text-3xl font-bold">۱۲ میلیون تومان</span>
+                            <p class="mt-2 text-sm opacity-90">فقط ماهانه ۱ میلیون تومان</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-center text-sm bg-amber-100 text-amber-800 p-2 rounded mb-4">۱ سال همراهی تخصصی با کسب‌وکار شما</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>مشاوره تلگرام و تیکت</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>ارسال اظهارنامه‌ حقیقی</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>دسترسی به فایل‌های آموزشی</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>دعوت به وبینار عمومی</span>
+                            </li>
+                        </ul>
+                        <button class="mt-8 w-full bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            شروع همراهی یکساله
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Silver Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 plan-card transform scale-105 z-10">
+                    <div class="absolute -top-2 right-0 bg-primary text-white pt-2 pb-1 px-4 text-sm font-bold shadow-md rounded-l-lg">
+                        محبوب‌ترین
+                    </div>
+                    <div class="p-6 bg-gradient-to-r from-gray-500 to-gray-400 text-white">
+                        <h3 class="text-2xl font-bold text-center">نقره‌ای</h3>
+                        <div class="text-center mt-4">
+                            <span class="text-3xl font-bold">۲۴ میلیون تومان</span>
+                            <p class="mt-2 text-sm opacity-90">فقط ماهانه ۲ میلیون تومان</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-center text-sm bg-gray-100 text-gray-800 p-2 rounded mb-4">۱ سال همراهی کامل با ارزش واقعی +۳۰ میلیون</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>۲ جلسه مشاوره آنلاین</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>تشکیل پرونده اینترنتی</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>بررسی ابلاغ الکترونیک</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>۲۰٪ تخفیف خدمات اجرایی</span>
+                            </li>
+                        </ul>
+                        <button class="mt-8 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            شروع همراهی یکساله
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Gold Plan -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 plan-card">
+                    <div class="absolute -top-2 right-0 bg-yellow-600 text-white py-1 px-4 text-sm font-bold shadow-md rounded-l-lg">
+                        ویژه
+                    </div>
+                    <div class="p-6 bg-gradient-to-r from-yellow-600 to-yellow-400 text-white">
+                        <h3 class="text-2xl font-bold text-center">طلایی</h3>
+                        <div class="text-center mt-4">
+                            <span class="text-3xl font-bold">۳۶ میلیون تومان</span>
+                            <p class="mt-2 text-sm opacity-90">فقط ماهانه ۳ میلیون تومان</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-center text-sm bg-yellow-100 text-yellow-800 p-2 rounded mb-4">۱ سال همراهی VIP با ارزش واقعی +۵۰ میلیون</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>۲ جلسه حضوری یا آنلاین</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>مشاوره تلفنی نامحدود</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>دعوت به وبینارهای خصوصی</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>طراحی چک‌لیست سفارشی</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 ml-2"></i>
+                                <span>۳۰٪ تخفیف خدمات اجرایی</span>
+                            </li>
+                        </ul>
+                        <button class="mt-8 w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            شروع همراهی یکساله
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">تا پایان سال مالی ۱۴۰۴ همراه شما هستیم</h2>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
+                <div class="bg-gray-50 p-6 rounded-lg flex items-center">
+                    <i class="fas fa-headset text-2xl text-secondary ml-4"></i>
+                    <span class="text-lg">پشتیبانی ۲۴/۷ در تلگرام و تیکت</span>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg flex items-center">
+                    <i class="fas fa-building text-2xl text-secondary ml-4"></i>
+                    <span class="text-lg">صدها کسب‌وکار موفق در ایران</span>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg flex items-center">
+                    <i class="fas fa-shield-alt text-2xl text-secondary ml-4"></i>
+                    <span class="text-lg">ضمانت رضایت یا بازگشت وجه</span>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="مشتری" class="w-16 h-16 rounded-full object-cover ml-4" loading="lazy">
+                        <div>
+                            <h4 class="font-bold">مهندس علی محمدی</h4>
+                            <p class="text-gray-600">مدیرعامل شرکت فناوری اطلاعات نوآور</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">«با مشاوره تخصصی این مجموعه، توانستیم مالیات شرکت را به میزان قابل توجهی کاهش دهیم. پشتیبانی عالی و همیشه در دسترس هستند.»</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="مشتری" class="w-16 h-16 rounded-full object-cover ml-4" loading="lazy">
+                        <div>
+                            <h4 class="font-bold">دکتر سارا کریمی</h4>
+                            <p class="text-gray-600">صاحب فروشگاه زنجیره‌ای لوازم خانگی</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">«بعد از دو سال چالش با اداره مالیات، با کمک این تیم توانستیم پرونده‌های قدیمی را حل کنیم و اکنون با خیال راحت به کسب‌وکارم می‌پردازم.»</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-red-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">همین امروز تحول مالیاتی کسب‌وکارت را شروع کن</h2>
+            <p class="text-lg mb-8">تعداد پلن طلایی محدود است</p>
+            <button class="bg-white text-primary hover:bg-gray-100 font-bold py-4 px-10 rounded-lg text-lg transition duration-300 shadow-lg">
+                درخواست اطلاعات بیشتر
+            </button>
+            <p class="mt-6 text-lg flex items-center justify-center">
+                <i class="fab fa-telegram ml-2"></i>
+                تلگرام: ۰۹۱۰۹۱۲۴۰۷۱
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <p>© ۱۴۰۴ - تمامی حقوق برای مشاوره مالیاتی حرفه‌ای محفوظ است</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for lazy loading and performance -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Toggle Resume Section
+            const resumeToggle = document.getElementById('resumeToggle');
+            const resumeSection = document.getElementById('resumeSection');
+            const resumeIcon = document.getElementById('resumeIcon');
+
+            resumeToggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                resumeSection.classList.toggle('hidden');
+                resumeIcon.classList.toggle('fa-arrow-left');
+                resumeIcon.classList.toggle('fa-arrow-down');
+            });
+        });
+    </script>
+</body>
+</html>
