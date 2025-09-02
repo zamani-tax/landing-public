@@ -1,8 +1,12 @@
 // src/scripts/salary-calculator.ts
 import { computePayroll, type PayrollConfig, type PayrollInput } from "~/lib/payroll";
+// ⬇️ JSON را مستقیم وارد باندل کن (پایدارترین روش برای هاست استاتیک)
+import importedCfg from "~/data/payroll-1404.json";
 
 const $ = (s: string) => document.querySelector(s) as HTMLElement | null;
 const Rial = (n: number | string) => new Intl.NumberFormat("fa-IR").format(Math.floor(Number(n || 0)));
+
+const IMPORTED_CFG = importedCfg as PayrollConfig;
 
 const FALLBACK_CFG: PayrollConfig = {
     year: 1404,
@@ -22,7 +26,8 @@ const FALLBACK_CFG: PayrollConfig = {
 };
 
 const state: { cfg: PayrollConfig; input: PayrollInput } = {
-    cfg: FALLBACK_CFG,
+    // ⬅️ به‌صورت پیش‌فرض از نسخه‌ی باندل‌شده استفاده کن
+    cfg: IMPORTED_CFG ?? FALLBACK_CFG,
     input: {
         mode: "daily",
         baseWage: 0,
@@ -40,21 +45,6 @@ const state: { cfg: PayrollConfig; input: PayrollInput } = {
         severanceMonthly: 0,
     },
 };
-
-async function loadConfigSafe() {
-    try {
-        const res = await fetch("/payroll-1404.json", { cache: "no-store" });
-        if (!res.ok) throw new Error(String(res.status));
-        state.cfg = (await res.json()) as PayrollConfig;
-        const el = $("#cfg-source");
-        if (el) el.textContent = "پیکربندی: از /payroll-1404.json";
-    } catch {
-        const el = $("#cfg-source");
-        if (el) el.textContent = "پیکربندی: FALLBACK داخلی";
-        state.cfg = FALLBACK_CFG;
-    }
-    renderOutputs();
-}
 
 function renderForm() {
     const root = $("#form-root");
@@ -102,7 +92,7 @@ function renderForm() {
     </div>
   `;
 
-    // رندر سوییچ‌ها با labels بدون ارور TS
+    // سوییچ‌ها
     const switches = $("#switches");
     if (switches) {
         const keys = ["Housing", "Food", "ChildAllowance", "Insurance", "Tax", "Severance"] as const;
@@ -126,7 +116,7 @@ function renderForm() {
             .join("");
     }
 
-    // مقدار اولیه حالت محاسبه
+    // مقدار اولیه حالت
     const modeSel = document.getElementById("f-mode") as HTMLSelectElement | null;
     if (modeSel) modeSel.value = state.input.mode;
 
@@ -135,67 +125,54 @@ function renderForm() {
         state.input.mode = (e.target as HTMLSelectElement).value as PayrollInput["mode"];
         renderOutputs();
     });
-
     (document.getElementById("f-base") as HTMLInputElement | null)?.addEventListener("input", (e) => {
         state.input.baseWage = Number((e.target as HTMLInputElement).value || 0);
         renderOutputs();
     });
-
     (document.getElementById("f-days") as HTMLInputElement | null)?.addEventListener("input", (e) => {
         state.input.days = Number((e.target as HTMLInputElement).value || 0);
         renderOutputs();
     });
-
     (document.getElementById("f-ot") as HTMLInputElement | null)?.addEventListener("input", (e) => {
         state.input.hoursOvertime = Number((e.target as HTMLInputElement).value || 0);
         renderOutputs();
     });
-
     (document.getElementById("f-otf") as HTMLInputElement | null)?.addEventListener("input", (e) => {
         state.input.overtimeFactor = Number((e.target as HTMLInputElement).value || 0);
         renderOutputs();
     });
-
     (document.getElementById("f-married") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.married = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-kids") as HTMLInputElement | null)?.addEventListener("input", (e) => {
         state.input.childCount = Number((e.target as HTMLInputElement).value || 0);
         renderOutputs();
     });
-
     (document.getElementById("f-housing") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.includeHousing = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-food") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.includeFood = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-childallowance") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.includeChildAllowance = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-insurance") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.includeInsurance = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-tax") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.includeTax = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-severance") as HTMLInputElement | null)?.addEventListener("change", (e) => {
         state.input.includeSeverance = (e.target as HTMLInputElement).checked;
         renderOutputs();
     });
-
     (document.getElementById("f-sev") as HTMLInputElement | null)?.addEventListener("input", (e) => {
         state.input.severanceMonthly = Number((e.target as HTMLInputElement).value || 0);
         renderOutputs();
@@ -271,9 +248,8 @@ function bindButtons() {
     const pdf = $("#btn-pdf");
 
     preset?.addEventListener("click", () => {
-        // نمونه حداقلی برای تست سریع
         state.input.mode = "daily";
-        state.input.baseWage = 3_000_000; // ریال/روز (نمونه)
+        state.input.baseWage = 3_000_000;
         state.input.days = 30;
         state.input.hoursOvertime = 20;
         state.input.overtimeFactor = 1.4;
@@ -284,8 +260,7 @@ function bindButtons() {
     });
 
     pdf?.addEventListener("click", async () => {
-        // خروجی ساده PDF
-        // @ts-ignore
+        // اگر فونت فارسی jsPDF را اضافه کردی، همان نسخه‌ی قبلی + فونت را بگذار
         const { jsPDF } = (window as any).jspdf || {};
         if (!jsPDF) return alert("jsPDF لود نشد.");
         const doc = new jsPDF({ unit: "pt", format: "a4" });
@@ -307,5 +282,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderForm();
     renderLawEditor();
     bindButtons();
-    loadConfigSafe();
+
+    // ⬇️ منبع پیکربندی «داخل باندل» است؛ برای شفافیت به کاربر هم اعلام کن
+    const src = $("#cfg-source");
+    if (src) src.textContent = "پیکربندی: از باندل (src/data/payroll-1404.json)";
+    renderOutputs();
 });
