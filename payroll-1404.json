@@ -12,19 +12,27 @@
         "childPerKid": 5000000
     },
     "tax": {
-        "exemptionMonthly": 0,
+        "exemptionMonthly": 240000000,
         "brackets": [
             {
-                "upTo": 0,
-                "rate": 0.0
+                "upTo": 60000000,
+                "rate": 0.10
             },
             {
-                "upTo": 0,
-                "rate": 0.0
+                "upTo": 80000000,
+                "rate": 0.15
+            },
+            {
+                "upTo": 120000000,
+                "rate": 0.20
+            },
+            {
+                "upTo": 166666667,
+                "rate": 0.25
             },
             {
                 "upTo": null,
-                "rate": 0.0
+                "rate": 0.30
             }
         ]
     }
