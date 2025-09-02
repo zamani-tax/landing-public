@@ -1,33 +1,16 @@
 // src/scripts/salary-calculator.ts
 import { computePayroll, type PayrollConfig, type PayrollInput } from "~/lib/payroll";
-// ⬇️ JSON را مستقیم وارد باندل کن (پایدارترین روش برای هاست استاتیک)
-import importedCfg from "~/data/payroll-1404.json";
+// نسخه‌ی درونی (باندل‌شده)
+import bundledCfg from "~/data/payroll-1404.json";
 
 const $ = (s: string) => document.querySelector(s) as HTMLElement | null;
-const Rial = (n: number | string) => new Intl.NumberFormat("fa-IR").format(Math.floor(Number(n || 0)));
+const Rial = (n: number | string) =>
+    new Intl.NumberFormat("fa-IR").format(Math.floor(Number(n || 0)));
 
-const IMPORTED_CFG = importedCfg as PayrollConfig;
-
-const FALLBACK_CFG: PayrollConfig = {
-    year: 1404,
-    workHoursMonthly: 220,
-    insurance: { worker: 0.07, employer: 0.2, unemployment: 0.03 },
-    allowances: { housing: 9_000_000, food: 22_000_000, childPerKid: 5_000_000 },
-    tax: {
-        exemptionMonthly: 240_000_000,
-        brackets: [
-            { upTo: 60_000_000, rate: 0.10 },
-            { upTo: 80_000_000, rate: 0.15 },
-            { upTo: 120_000_000, rate: 0.20 },
-            { upTo: 166_666_667, rate: 0.25 },
-            { upTo: null, rate: 0.30 },
-        ],
-    },
-};
+const FALLBACK_CFG: PayrollConfig = bundledCfg as PayrollConfig;
 
 const state: { cfg: PayrollConfig; input: PayrollInput } = {
-    // ⬅️ به‌صورت پیش‌فرض از نسخه‌ی باندل‌شده استفاده کن
-    cfg: IMPORTED_CFG ?? FALLBACK_CFG,
+    cfg: FALLBACK_CFG,
     input: {
         mode: "daily",
         baseWage: 0,
@@ -45,6 +28,24 @@ const state: { cfg: PayrollConfig; input: PayrollInput } = {
         severanceMonthly: 0,
     },
 };
+
+// ⬇️ تلاش برای خوندن JSON بیرونی
+async function loadConfig() {
+    try {
+        const base = import.meta.env.BASE_URL; // در GH Pages میشه /repo-name/
+        const res = await fetch(`${base}payroll-1404.json`, { cache: "no-store" });
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        state.cfg = (await res.json()) as PayrollConfig;
+        const el = $("#cfg-source");
+        if (el) el.textContent = `پیکربندی: از ${base}payroll-1404.json`;
+    } catch (err) {
+        state.cfg = FALLBACK_CFG;
+        const el = $("#cfg-source");
+        if (el) el.textContent = "پیکربندی: نسخه باندل (داخلی)";
+        console.warn("Load config failed, fallback used:", err);
+    }
+    renderOutputs();
+}
 
 function renderForm() {
     const root = $("#form-root");
@@ -92,7 +93,6 @@ function renderForm() {
     </div>
   `;
 
-    // سوییچ‌ها
     const switches = $("#switches");
     if (switches) {
         const keys = ["Housing", "Food", "ChildAllowance", "Insurance", "Tax", "Severance"] as const;
@@ -116,11 +116,9 @@ function renderForm() {
             .join("");
     }
 
-    // مقدار اولیه حالت
     const modeSel = document.getElementById("f-mode") as HTMLSelectElement | null;
     if (modeSel) modeSel.value = state.input.mode;
 
-    // بایند رویدادها
     (document.getElementById("f-mode") as HTMLSelectElement | null)?.addEventListener("change", (e) => {
         state.input.mode = (e.target as HTMLSelectElement).value as PayrollInput["mode"];
         renderOutputs();
@@ -260,7 +258,6 @@ function bindButtons() {
     });
 
     pdf?.addEventListener("click", async () => {
-        // اگر فونت فارسی jsPDF را اضافه کردی، همان نسخه‌ی قبلی + فونت را بگذار
         const { jsPDF } = (window as any).jspdf || {};
         if (!jsPDF) return alert("jsPDF لود نشد.");
         const doc = new jsPDF({ unit: "pt", format: "a4" });
@@ -282,9 +279,5 @@ document.addEventListener("DOMContentLoaded", () => {
     renderForm();
     renderLawEditor();
     bindButtons();
-
-    // ⬇️ منبع پیکربندی «داخل باندل» است؛ برای شفافیت به کاربر هم اعلام کن
-    const src = $("#cfg-source");
-    if (src) src.textContent = "پیکربندی: از باندل (src/data/payroll-1404.json)";
-    renderOutputs();
+    loadConfig();
 });

@@ -1,0 +1,39 @@
+{
+    "year": 1404,
+    "workHoursMonthly": 220,
+    "insurance": {
+        "worker": 0.07,
+        "employer": 0.20,
+        "unemployment": 0.03
+    },
+    "allowances": {
+        "housing": 9000000,
+        "food": 22000000,
+        "childPerKid": 5000000
+    },
+    "tax": {
+        "exemptionMonthly": 240000000,
+        "brackets": [
+            {
+                "upTo": 60000000,
+                "rate": 0.10
+            },
+            {
+                "upTo": 80000000,
+                "rate": 0.15
+            },
+            {
+                "upTo": 120000000,
+                "rate": 0.20
+            },
+            {
+                "upTo": 166666667,
+                "rate": 0.25
+            },
+            {
+                "upTo": null,
+                "rate": 0.30
+            }
+        ]
+    }
+}
