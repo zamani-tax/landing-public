@@ -1,13 +1,29 @@
 // src/scripts/salary-calculator.ts
 import { computePayroll, type PayrollConfig, type PayrollInput } from "~/lib/payroll";
-// نسخه‌ی درونی (باندل‌شده)
-import bundledCfg from "~/data/payroll-1404.json";
+// نسخه‌ی درونی (باندل‌شده) قبلاً از src/data ایمپورت می‌شد؛ چون فایل را به public منتقل کرده‌ای، این import حذف شد.
+// import bundledCfg from "~/data/payroll-1404.json";
 
 const $ = (s: string) => document.querySelector(s) as HTMLElement | null;
 const Rial = (n: number | string) =>
   new Intl.NumberFormat("fa-IR").format(Math.floor(Number(n || 0)));
 
-const FALLBACK_CFG: PayrollConfig = bundledCfg as PayrollConfig;
+// ✅ Fallback داخلی فقط برای وقتی که fetch از public شکست بخورد
+const FALLBACK_CFG: PayrollConfig = {
+  year: 1404,
+  workHoursMonthly: 220,
+  insurance: { worker: 0.07, employer: 0.20, unemployment: 0.03 },
+  allowances: { housing: 9000000, food: 22000000, childPerKid: 5000000 },
+  tax: {
+    exemptionMonthly: 240000000,
+    brackets: [
+      { upTo: 60000000, rate: 0.10 },
+      { upTo: 80000000, rate: 0.15 },
+      { upTo: 120000000, rate: 0.20 },
+      { upTo: 166666667, rate: 0.25 },
+      { upTo: null, rate: 0.30 }
+    ]
+  }
+};
 
 const state: { cfg: PayrollConfig; input: PayrollInput } = {
   cfg: FALLBACK_CFG,
@@ -29,16 +45,15 @@ const state: { cfg: PayrollConfig; input: PayrollInput } = {
   },
 };
 
-// ⬇️ تلاش برای خوندن JSON بیرونی (سازگار با استقرار استاتیک / GH Pages)
+// ⬇️ تلاش برای خوندن JSON بیرونی از public (سازگار با GH Pages زیرمسیر)
 async function loadConfig() {
   try {
-    // تولید URL صحیحِ فایل استاتیک در زمان بیلد (به مسیر هش‌دار در dist اشاره می‌کند)
-    const cfgUrl = new URL("../data/payroll-1404.json", import.meta.url).href;
-    const res = await fetch(cfgUrl, { cache: "no-store" });
+    const base = import.meta.env.BASE_URL; // در GH Pages میشه /repo-name/
+    const res = await fetch(`${base}payroll-1404.json`, { cache: "no-store" });
     if (!res.ok) throw new Error("HTTP " + res.status);
     state.cfg = (await res.json()) as PayrollConfig;
     const el = $("#cfg-source");
-    if (el) el.textContent = `پیکربندی: از فایل JSON باندل‌شده (${cfgUrl})`;
+    if (el) el.textContent = `پیکربندی: از ${base}payroll-1404.json`;
   } catch (err) {
     state.cfg = FALLBACK_CFG;
     const el = $("#cfg-source");
