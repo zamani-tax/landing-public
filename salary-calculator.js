@@ -96,7 +96,7 @@ var state = {
   cfg: FALLBACK_CFG,
   input: {
     mode: "daily",
-    baseWage: 0,
+    baseWage: 3463656,
     days: 30,
     hoursOvertime: 0,
     overtimeFactor: 1.4,
