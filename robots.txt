@@ -1,7 +1,5 @@
+
 User-agent: *
-Disallow: /*.htm$
-Disallow: /pcmypage
-Disallow: /safe_search
-Disallow: /product?
+Allow: /
 
 Sitemap: https://zamani.tax/sitemap-index.xml
