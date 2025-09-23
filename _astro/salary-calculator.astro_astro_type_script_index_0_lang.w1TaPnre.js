@@ -1,1 +1,0 @@
-import"https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js";
