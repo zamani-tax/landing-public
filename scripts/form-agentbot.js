@@ -44,7 +44,7 @@
 
         btn.disabled = true;
 
-        fetch("https://teloox.ir/forms.php", { method: "POST", body: fd })
+        fetch("https://agentbot.zamani.tax/forms.php", { method: "POST", body: fd })
             .then(function (res) {
                 var ok = res.ok;
                 var ct = res.headers.get("content-type") || "";
