@@ -93,8 +93,8 @@
     }, { signal: ac.signal });
 
     // در سوییچ‌های Astro Transitions مودال‌ها را ببند (رفرنس‌ها خودکار تازه می‌شوند)
-    window.addEventListener("astro:after-swap", () => { closeAll(); }, { signal: ac.signal });
-    window.addEventListener("astro:page-load", () => { closeAll(); }, { signal: ac.signal });
+    window.addEventListener("astro:after-swap", () => setTimeout(closeAll, 100), { signal: ac.signal });
+    window.addEventListener("astro:page-load", () => setTimeout(closeAll, 100), { signal: ac.signal });
 
     // Hooks برای تست دستی در کنسول
     window[KEY].openTools = () => openModal(getToolsModal(), getToolsBtn());
