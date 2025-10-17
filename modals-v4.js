@@ -14,7 +14,7 @@
     const $ = (id) => document.getElementById(id);
     const root = document.documentElement;
 
-    // ✅ به‌جای نگه‌داشتن رفرنس‌های ثابت، هربار DOM را تازه بگیر
+    // ✅ به جای نگه داشتن رفرنس های ثابت، هربار DOM را تازه بگیر
     const getToolsModal = () => $("mobile-launcher-tools");
     const getOthersModal = () => $("mobile-launcher-others");
     const getToolsBtn = () => $("tools-launcher-toggle");
@@ -73,7 +73,7 @@
         if (t.closest?.("#tools-close") || t.closest?.("#tools-backdrop")) { closeModal(getToolsModal(), getToolsBtn()); return; }
         if (t.closest?.("#others-close") || t.closest?.("#others-backdrop")) { closeModal(getOthersModal(), getOthersBtn()); return; }
 
-        // ساب‌منوی «مرکز محتوا» داخل مودال «سایر منوها»
+        // ساب منوی «مرکز محتوا» داخل مودال «سایر منوها»
         const contentExpand = t.closest?.("#content-expand");
         if (contentExpand) {
             const sub = $("content-subgrid");
@@ -92,7 +92,7 @@
         if (e.key === "Escape") closeAll();
     }, { signal: ac.signal });
 
-    // در سوییچ‌های Astro Transitions مودال‌ها را ببند (رفرنس‌ها خودکار تازه می‌شوند)
+    // در سوییچ های Astro Transitions مودال ها را ببند (رفرنس ها خودکار تازه می شوند)
     window.addEventListener("astro:after-swap", () => setTimeout(closeAll, 100), { signal: ac.signal });
     window.addEventListener("astro:page-load", () => setTimeout(closeAll, 100), { signal: ac.signal });
 
