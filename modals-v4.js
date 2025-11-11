@@ -28,11 +28,20 @@
             !getOthersModal()?.classList.contains("hidden");
     }
 
+    function resetLaws() {
+        const sub = $("laws-sublist");
+        const btn = $("laws-expand");
+        if (sub) sub.classList.add("hidden");
+        if (btn) btn.setAttribute("aria-expanded", "false");
+    }
+
     function closeModal(modal, btn) {
         if (!modal) return;
         if (!modal.classList.contains("hidden")) {
             modal.classList.add("hidden");
             btn?.setAttribute("aria-expanded", "false");
+            // اگر مودال «سایر منوها» بسته شد، وضعیت قوانین ریست شود
+            if (modal.id === "mobile-launcher-others") resetLaws();
         }
         if (!anyOpen()) unlockScroll();
     }
@@ -85,6 +94,17 @@
                 sub?.classList.remove("hidden");
                 contentExpand.setAttribute("aria-expanded", "true");
             }
+            return;
+        }
+
+        // ساب لیست قوانین در مودال «سایر منوها»
+        const lawsBtn = t.closest?.("#laws-expand");
+        if (lawsBtn) {
+            const sub = $("laws-sublist");
+            const expanded = lawsBtn.getAttribute("aria-expanded") === "true";
+            sub?.classList.toggle("hidden", expanded);
+            lawsBtn.setAttribute("aria-expanded", String(!expanded));
+            return;
         }
     }, { signal: ac.signal });
 
