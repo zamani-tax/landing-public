@@ -1,7 +1,14 @@
 {
-    "version":  "1.1.2",
-    "file":  "https://github.com/zamani-tax/zamani-downloads/releases/download/backupmanager-v1.1.2/ZamaniBackupManager-1.1.2.zip",
-    "signature":  "6g5uZS/GoEPXwFpi+joMNIL/WPotz9AvqRZZNAZcxeqnGX6J7X3AxhWUXWIpXDESPCJc6nN7ZxhNmxwqB4+lww==",
-    "notes":  "راه اندازی قدم به قدم: فعال سازی لایسنس و ثبت شرکت در یک صفحه",
-    "published":  "2026-10-11T20:05:10Z"
+    "version":  "1.1.4",
+    "file":  "https://github.com/zamani-tax/zamani-downloads/releases/download/backupmanager-v1.1.4/ZamaniBackupManager-1.1.4.zip",
+    "signature":  "dhjcJTdRKYCR79io3ThfXBH/SzrWI4LBiEyUVlkjYtsnu5o6iVM4ps1Pkkffx8srI42e7zz/Sog7wAVfD7j/EQ==",
+    "notes":  "بسته به روزرسانی کوچک (فقط فایل های عوض شده)",
+    "published":  "2026-10-11T20:52:22Z",
+    "deltas":  [
+                   {
+                       "from":  "1.1.3",
+                       "file":  "https://github.com/zamani-tax/zamani-downloads/releases/download/backupmanager-v1.1.4/ZamaniBackupManager-1.1.3-to-1.1.4.zip",
+                       "signature":  "rlqnVfeZtP6Hr1A7jKIKhySsZmR+Ys4vWeI1wlEKprTq1Qs53/+Kelot+KekaKsyUQasB+fk6iMkECxmCrkXlw=="
+                   }
+               ]
 }
