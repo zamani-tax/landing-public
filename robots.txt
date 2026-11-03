@@ -1,5 +1,8 @@
 
 User-agent: *
 Allow: /
+# صفحه های پرداخت فقط با لینک مستقیم (noindex هم دارند)
+Disallow: /pay/
+Disallow: /shop/
 
 Sitemap: https://zamani.tax/sitemap-index.xml
